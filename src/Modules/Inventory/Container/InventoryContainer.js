@@ -25,7 +25,7 @@ const InventoryContainer = (props) => {
     resetInventoryForm,
   } = props;
 
-  console.log('reset form', resetInventoryForm);
+
   // console.log('props invent container', props);
 
   const handleAddInventory = () => {

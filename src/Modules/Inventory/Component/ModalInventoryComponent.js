@@ -23,7 +23,7 @@ const ModalInventoryComponent = (props) => {
   // console.log('supplier data', supplierData);
 
   const SelectInput = (input) => {
-    console.log('input parameter', input);
+    // console.log('input parameter', input);
     return (
       <>
         <Select
