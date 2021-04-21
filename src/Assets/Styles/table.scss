@@ -1,0 +1,73 @@
+/* START TABLE */
+.tableReact {
+    width: 100%;
+    background: #ffffff;
+    color: #212529;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+    border-spacing: 2px;
+  }
+  .theadTableReact {
+    background: rgba(222,226,230, 0.5);
+  }
+  .theadTableReact tr {
+    padding: 0.75rem;
+  }
+  .theadTableReact tr th {
+    vertical-align: bottom;
+    padding: 0.75rem;
+    display: table-cell;
+  }
+  .tbodyTableReact {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+  }
+  .tbodyTableReact tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+  }
+  .tbodyTableReact tr th,
+  .tbodyTableReact tr td {
+    padding: 0.75rem;
+    vertical-align: top;
+  }
+  .rowTableGrey
+  {
+    background: rgba(222,226,230, 0.5);
+  }
+  .navPagination
+  {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+  }
+  .paginationTableReact {
+    z-index: 1;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  .globalFilterTable {
+    float: right;
+    margin-bottom: 10px;
+  }
+  .inputSearchGlobalFilter
+  {
+    font-size: '1.1rem';
+    border: 0ch;
+    background: #eff0f2;
+  }
+  .inputGoToPageTable
+  {
+    border: 1px solid #dee2e6;
+  }
+  .trTableHead
+  {
+    border-bottom: 2px solid white;
+  }
+  .headerDatatableClassCenter
+  {
+    text-align: center;
+  }
+  /* END TABLE */

@@ -1,0 +1,67 @@
+@import 'antd/dist/antd.css';
+@import './table.scss';
+
+$backgroundColorPrimary : red;
+$colorWhite : #FFFFFF;
+%btnStyle{
+    width: 300px;
+    height: 100px;
+}
+
+.btnActionTable
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.containerDiv
+{
+    background-color: pink;
+    padding: 100px;
+
+    .btnToggle
+    {
+        width: 500px;
+        background: $backgroundColorPrimary;
+        color: $colorWhite;
+    }
+    .btnSecond
+    {
+        background: $backgroundColorPrimary;
+        color: papayawhip;
+    }
+}
+
+
+.btn
+{
+   @extend %btnStyle
+}
+.btnSuccess
+{
+    background: greenyellow;
+}
+.btnPrimary
+{
+    background: blue;
+}
+.btnDefault
+{
+    background: white;
+}
+.btnError
+{
+    background: red;
+}
+.btnTesting
+{
+   @extend %btnStyle;
+   background: cadetblue;
+}
+
+
+.logo
+{
+    color: white;
+    font-size: 30px;
+    padding: 6px;
+}
