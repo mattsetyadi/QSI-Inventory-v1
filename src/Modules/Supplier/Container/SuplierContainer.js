@@ -64,7 +64,6 @@ const SuplierContainer = (props) => {
       title: 'No',
       render: (rowData) => rowData.tableData.id + 1,
       width: 20,
-      type: 'numeric',
     },
     { title: 'Inventory Name', field: 'name', width: 550 },
     {

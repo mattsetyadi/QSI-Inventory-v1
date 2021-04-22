@@ -72,38 +72,32 @@ const InventoryContainer = (props) => {
       title: 'No',
       render: (rowData) => rowData.tableData.id + 1,
       width: 20,
-      type: 'numeric',
     },
     {
       title: 'SKU',
       field: 'sku',
       width: '250',
-      type: 'numeric',
     },
     { title: 'Inventory Name', field: 'name', width: 550 },
     {
       title: 'Cost Price',
       field: 'costPrice',
       width: 250,
-      type: 'numeric',
     },
     {
       title: 'Retail Price',
       field: 'retailPrice',
       width: 250,
-      type: 'numeric',
     },
     {
       title: 'Quantity',
       field: 'qty',
       width: 250,
-      type: 'numeric',
     },
     {
       title: 'Margin Percentage',
       field: 'marginPercentage',
       width: 250,
-      type: 'numeric',
     },
     {
       title: 'Supplier Name',
@@ -124,7 +118,6 @@ const InventoryContainer = (props) => {
       title: 'Postcode',
       field: 'supplier.postCode',
       width: 250,
-      type: 'numeric',
     },
   ];
 
