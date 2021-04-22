@@ -10,14 +10,18 @@ function* fetchInventoryListProcess() {
   try {
     const page = yield select(SelectorInventory.currentPageSelector());
     const size = yield select(SelectorInventory.sizePerPageSelector());
+    yield put(ActionTemplate.setLoadingCompoent(true));
+    yield put(ActionTemplate.setLoading(true));
     const { data } = yield call(
       axios.get,
       `${process.env.REACT_APP_APP_URL}/InventoryItem/inquiry/${
         page ? page : '0'
-      }/${size ? '1000' : '1000'}`,
+      }/${size ? '1000' : '1000'}`
     );
     // ganti dulu, sizenya ga dipake
 
+    yield put(ActionTemplate.setLoadingCompoent(false));
+    yield put(ActionTemplate.setLoading(false));
     yield put(ActionInventory.fetchInventoryListFinished(data));
     yield put(ActionInventory.setCurrentPage(data.page));
     yield put(ActionInventory.setTotalPage(data.totalPages));
@@ -33,14 +37,17 @@ function* submitInventoryProcess() {
     const name = yield select(SelectorInventory.formNameSelector());
     const costPrice = yield select(SelectorInventory.formCostPriceSelector());
     const retailPrice = yield select(
-      SelectorInventory.formRetailPriceSelector(),
+      SelectorInventory.formRetailPriceSelector()
     );
     const qty = yield select(SelectorInventory.formQuantitySelector());
     const marginPercentage = yield select(
-      SelectorInventory.formMarginPercentageSelector(),
+      SelectorInventory.formMarginPercentageSelector()
     );
     const sku = yield select(SelectorInventory.formSkuSelector());
     const supplierId = yield select(SelectorInventory.formSupplierIdSelector());
+
+    yield put(ActionTemplate.setLoadingCompoent(true));
+    yield put(ActionTemplate.setLoading(true));
 
     yield call(
       axios.post,
@@ -53,9 +60,11 @@ function* submitInventoryProcess() {
         marginPercentage,
         sku,
         supplierId,
-      },
+      }
     );
     yield put(ActionInventory.fetchInventoryListRequested());
+    yield put(ActionTemplate.setLoadingCompoent(false));
+    yield put(ActionTemplate.setLoading(false));
     yield put(ActionTemplate.openModal('Inventory'));
     toast.success('New Inventory Submitted');
     yield put(ActionInventory.removeInventoryDetail());
@@ -71,14 +80,18 @@ function* updateInventoryProcess() {
     const name = yield select(SelectorInventory.formNameSelector());
     const costPrice = yield select(SelectorInventory.formCostPriceSelector());
     const retailPrice = yield select(
-      SelectorInventory.formRetailPriceSelector(),
+      SelectorInventory.formRetailPriceSelector()
     );
     const qty = yield select(SelectorInventory.formQuantitySelector());
     const marginPercentage = yield select(
-      SelectorInventory.formMarginPercentageSelector(),
+      SelectorInventory.formMarginPercentageSelector()
     );
     const sku = yield select(SelectorInventory.formSkuSelector());
     const supplierId = yield select(SelectorInventory.formSupplierIdSelector());
+
+    yield put(ActionTemplate.setLoadingCompoent(true));
+    yield put(ActionTemplate.setLoading(true));
+
     yield call(
       axios.put,
       `${process.env.REACT_APP_APP_URL}/InventoryItem/UpdateItem`,
@@ -91,9 +104,11 @@ function* updateInventoryProcess() {
         marginPercentage,
         sku,
         supplierId,
-      },
+      }
     );
     yield put(ActionInventory.fetchInventoryListRequested());
+    yield put(ActionTemplate.setLoadingCompoent(false));
+    yield put(ActionTemplate.setLoading(false));
     yield put(ActionTemplate.openModal('Inventory'));
     yield put(ActionInventory.removeInventoryDetail());
     toast.success('Inventory Updated');

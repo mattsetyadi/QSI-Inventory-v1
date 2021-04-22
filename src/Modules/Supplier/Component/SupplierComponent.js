@@ -14,6 +14,7 @@ const SupplierComponent = (props) => {
     // sizePerPage,
     // handlePageClick,
     handleUpdateSupplier,
+    isLoading,
   } = props;
 
   const suppliers = listData.data;
@@ -25,6 +26,7 @@ const SupplierComponent = (props) => {
         columns={columns}
         handleAdd={handleAddSupplier}
         handleUpdate={handleUpdateSupplier}
+        isLoading={isLoading}
       />
       {/* <Row>
         <Col>

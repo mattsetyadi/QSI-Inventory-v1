@@ -1,13 +1,21 @@
 import React from 'react';
 import MaterialTable from 'material-table';
 
-const MTable = ({ data, columns, inventory, handleAdd, handleUpdate }) => {
+const MTable = ({
+  data,
+  columns,
+  inventory,
+  handleAdd,
+  handleUpdate,
+  isLoading,
+}) => {
   return (
     <div>
       <MaterialTable
         title={inventory ? 'Inventory List' : 'Supplier List'}
         data={data}
         columns={columns}
+        isLoading={isLoading}
         options={{
           search: false,
           paging: false,

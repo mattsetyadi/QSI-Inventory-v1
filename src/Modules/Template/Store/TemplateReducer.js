@@ -3,6 +3,8 @@ export const initialState = {
   siderIsOpen: true,
   showModalSupplier: false,
   showModalInventory: false,
+  loading: false,
+  loadingComponent: false,
 };
 
 export default function TemplateReducer(state = initialState, action) {
@@ -23,6 +25,19 @@ export default function TemplateReducer(state = initialState, action) {
       newState[`showModal${component}`] = !state[`showModal${component}`];
       return { ...newState };
     }
+
+    case 'SET_LOADING': {
+      const setLoading = action;
+      newState.loading = setLoading.status;
+      return { ...newState };
+    }
+
+    case 'SET_LOADING_COMPOENENT': {
+      const setLoadingComponent = action;
+      newState.loadingComponent = setLoadingComponent.status;
+      return { ...newState };
+    }
+
     default:
       return state;
   }

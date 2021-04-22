@@ -11,3 +11,17 @@ export function openModal(component) {
     component,
   };
 }
+
+export function setLoading(status) {
+  return {
+    type: 'SET_LOADING',
+    status,
+  };
+}
+
+export function setLoadingCompoent(status) {
+  return {
+    type: 'SET_LOADING_COMPONENT',
+    status,
+  };
+}

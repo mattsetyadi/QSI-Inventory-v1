@@ -9,7 +9,9 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 const ModalSupplierContainer = (props) => {
-  const { actionSupplier, modalAction } = props;
+  const { actionSupplier, modalAction, initialValues } = props;
+
+  console.log('init values', initialValues);
 
   const handleOnSubmit = () => {
     if (modalAction === 'register') {

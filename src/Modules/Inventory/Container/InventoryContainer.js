@@ -25,7 +25,6 @@ const InventoryContainer = (props) => {
     resetInventoryForm,
   } = props;
 
-
   // console.log('props invent container', props);
 
   const handleAddInventory = () => {
@@ -158,6 +157,8 @@ const mapStateToProps = createStructuredSelector({
   currentPage: SelectorInventory.currentPageSelector(),
   sizePerPage: SelectorInventory.sizePerPageSelector(),
   supplierData: SelectorSupplier.listDataSelector(),
+  isLoading: SelectorTemplate.loadingSelector(),
+  isLoadingComponent: SelectorTemplate.loadingComponentSelector(),
 });
 
 const mapDispatchToProps = (dispatch) => ({

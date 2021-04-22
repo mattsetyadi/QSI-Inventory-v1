@@ -14,87 +14,98 @@ const ModalSupplierComponent = (props) => {
     handleOnSubmit,
     modalAction,
     supplierDetail,
+    isLoadingComponent,
   } = props;
 
   return (
     <Modal
-      title='Basic Modal'
+      title="Basic Modal"
       visible={modalSupplierIsShow}
       onCancel={handleCancelModal}
       footer={null}
     >
       {modalAction === 'update' ? (
         <>
-          <Form onFinish={handleOnSubmit} layout='vertical'>
+          <Form onFinish={handleOnSubmit} layout="vertical">
             <Field
-              name='name'
+              name="name"
               component={InputText}
-              label='Name'
+              label="Name"
               placeholder={supplierDetail?.name}
             />
             <Field
-              name='address'
+              name="address"
               component={InputText}
-              label='Address'
+              label="Address"
               placeholder={supplierDetail?.address}
             />
             <Field
-              name='city'
+              name="city"
               component={InputText}
-              label='City'
+              label="City"
               placeholder={supplierDetail?.city}
             />
             <Field
-              name='postCode'
+              name="postCode"
               component={InputText}
-              label='Postal Code'
+              label="Postal Code"
               placeholder={supplierDetail?.postCode}
             />
             <Field
-              name='phone'
+              name="phone"
               component={InputText}
-              label='Phone'
-              placeholder='Input phone here'
+              label="Phone"
+              placeholder="Input phone number here"
+              needAddOn
             />
-            <Button type='primary' htmlType='submit'>
+            <Button
+              loading={isLoadingComponent}
+              type="primary"
+              htmlType="submit"
+            >
               Submit
             </Button>
           </Form>
         </>
       ) : (
         <>
-          <Form onFinish={handleOnSubmit} layout='vertical'>
+          <Form onFinish={handleOnSubmit} layout="vertical">
             <Field
-              name='name'
+              name="name"
               component={InputText}
-              label='Name'
-              placeholder='Input name here'
+              label="Name"
+              placeholder="Input name here"
             />
             <Field
-              name='address'
+              name="address"
               component={InputText}
-              label='Address'
-              placeholder='Input address here'
+              label="Address"
+              placeholder="Input address here"
             />
             <Field
-              name='city'
+              name="city"
               component={InputText}
-              label='City'
-              placeholder='Input city here'
+              label="City"
+              placeholder="Input city here"
             />
             <Field
-              name='postCode'
+              name="postCode"
               component={InputText}
-              label='Postal Code'
-              placeholder='Input postal code here'
+              label="Postal Code"
+              placeholder="Input postal code here"
             />
             <Field
-              name='phone'
+              name="phone"
               component={InputText}
-              label='Phone'
-              placeholder='Input phone here'
+              label="Phone"
+              placeholder="Input phone number here"
+              // needAddOn
             />
-            <Button type='primary' htmlType='submit'>
+            <Button
+              loading={isLoadingComponent}
+              type="primary"
+              htmlType="submit"
+            >
               Submit
             </Button>
           </Form>

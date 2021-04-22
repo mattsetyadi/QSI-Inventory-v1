@@ -12,16 +12,20 @@ function* fetchSupplierListProcess() {
   const size = yield select(SelectorSupplier.supplierSizePerPageSelector());
 
   try {
+    yield put(ActionTemplate.setLoadingCompoent(true));
+    yield put(ActionTemplate.setLoading(true));
     const { data } = yield call(
       axios.get,
       `${process.env.REACT_APP_APP_URL}/Supplier/inquiry/${page ? page : '1'}/${
         size ? '1000' : '1000'
-      }`,
+      }`
     );
     yield put(ActionSupplier.fetchSupplierListFinished(data));
     yield put(ActionSupplier.setSupplierCurentPage(data.page));
     yield put(ActionSupplier.setSupplierTotalPage(data.totalPages));
     yield put(ActionSupplier.setSupplierSizePerPage(data.data?.length));
+    yield put(ActionTemplate.setLoadingCompoent(false));
+    yield put(ActionTemplate.setLoading(false));
   } catch (error) {
     console.log(error);
   }
@@ -34,6 +38,10 @@ function* submitSupplierProcess() {
     const city = yield select(SelectorSupplier.formCitySelector());
     const postCode = yield select(SelectorSupplier.formPostCodeSelector());
     const phone = yield select(SelectorSupplier.formPhoneSelector());
+
+    yield put(ActionTemplate.setLoading(true));
+    yield put(ActionTemplate.setLoadingCompoent(true));
+
     yield call(
       axios.post,
       `${process.env.REACT_APP_APP_URL}/Supplier/AddSupplier`,
@@ -49,10 +57,11 @@ function* submitSupplierProcess() {
             value: phone,
           },
         ],
-      },
+      }
     );
     yield put(ActionSupplier.fetchSupplierListRequested());
-
+    yield put(ActionTemplate.setLoading(false));
+    yield put(ActionTemplate.setLoadingCompoent(false));
     yield put(ActionTemplate.openModal('Supplier'));
     toast.success('New Supplier submitted');
     yield put(ActionSupplier.removeSupplierDetail());
@@ -66,7 +75,7 @@ function* setSupplierDetailProcess() {
     const id = yield select(SelectorSupplier.idSelector());
     const { data } = yield call(
       axios.get,
-      `${process.env.REACT_APP_APP_URL}/Supplier/${id}`,
+      `${process.env.REACT_APP_APP_URL}/Supplier/${id}`
     );
 
     console.log('data from saga', data);
@@ -83,6 +92,10 @@ function* updateSupplierProcess() {
     const city = yield select(SelectorSupplier.formCitySelector());
     const postCode = yield select(SelectorSupplier.formPostCodeSelector());
     const phone = yield select(SelectorSupplier.formPhoneSelector());
+
+    yield put(ActionTemplate.setLoading(true));
+    yield put(ActionTemplate.setLoadingCompoent(true));
+
     yield call(
       axios.put,
       `${process.env.REACT_APP_APP_URL}/Supplier/UpdateSupplier`,
@@ -99,9 +112,11 @@ function* updateSupplierProcess() {
             value: phone,
           },
         ],
-      },
+      }
     );
     yield put(ActionSupplier.fetchSupplierListRequested());
+    yield put(ActionTemplate.setLoading(false));
+    yield put(ActionTemplate.setLoadingCompoent(false));
     yield put(ActionTemplate.openModal('Supplier'));
     toast.success('Supplier Updated');
     yield put(ActionSupplier.removeSupplierDetail());

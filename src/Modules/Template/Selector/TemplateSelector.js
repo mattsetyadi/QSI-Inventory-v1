@@ -9,3 +9,8 @@ export const modalSupplierSelector = () =>
   createSelector(templateState, (state) => state.showModalSupplier);
 export const modalInventorySelector = () =>
   createSelector(templateState, (state) => state.showModalInventory);
+
+export const loadingSelector = () =>
+  createSelector(templateState, (state) => state.loading);
+export const loadingComponentSelector = () =>
+  createSelector(templateState, (state) => state.loadingComponent);

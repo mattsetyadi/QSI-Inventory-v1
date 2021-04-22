@@ -11,6 +11,7 @@ export default function InventoryComponent(props) {
     handleUpdateInventory,
     // handleDetailInvetory,
     columns,
+    isLoading,
     // totalPage,
     // currentPage,
     // sizePerPage,
@@ -27,6 +28,7 @@ export default function InventoryComponent(props) {
         columns={columns}
         handleAdd={handleAddInventory}
         handleUpdate={handleUpdateInventory}
+        isLoading={isLoading}
         inventory
       />
       <ModalInventoryContainer {...props} />

@@ -39,7 +39,7 @@ export default function SupplierReducer(state = initialState, action) {
     case 'REMOVE_SUPPLIER_DETAIL': {
       newState.selectedIdSupplier = '';
       newState.selectedSupplier = {};
-      return { ...state };
+      return { ...newState };
     }
 
     case 'SET_SUPPLIER_CURRENT_PAGE': {

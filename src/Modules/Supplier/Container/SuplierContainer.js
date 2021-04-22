@@ -43,18 +43,15 @@ const SuplierContainer = (props) => {
 
   const handleUpdateSupplier = (data) => {
     actionSupplier.changeModalAction('update');
-    // handleSupplierId(id);
-    // handleSupplierDetail(id);
     actionSupplier.setSupplierId(data.id);
     actionSupplier.setSupplierDetail(data);
-    // actionSupplier.setSupplierDetail(supplierData[id]);
     actionTemplate.openModal('Supplier');
   };
 
   const handleCancelModal = () => {
     actionSupplier.changeModalAction('register');
-    actionTemplate.openModal('Supplier');
     actionSupplier.removeSupplierDetail();
+    actionTemplate.openModal('Supplier');
   };
 
   const handlePageClick = (pageNumber, pageSize) => {
@@ -106,10 +103,12 @@ const mapStateToProps = createStructuredSelector({
   supplierData: SelectorSupplier.listDataSelector(),
   supplierId: SelectorSupplier.idSelector(),
   supplierDetail: SelectorSupplier.selectedSupplierSelector(),
-  modalSupplierIsShow: SelectorTemplate.modalSupplierSelector(),
   totalPage: SelectorSupplier.supplierTotalPageSelector(),
   currentPage: SelectorSupplier.supplierCurrentPageSelector(),
   sizePerPage: SelectorSupplier.supplierSizePerPageSelector(),
+  modalSupplierIsShow: SelectorTemplate.modalSupplierSelector(),
+  isLoading: SelectorTemplate.loadingSelector(),
+  isLoadingComponent: SelectorTemplate.loadingComponentSelector(),
 });
 
 const mapDispatchToProps = (dispatch) => ({
