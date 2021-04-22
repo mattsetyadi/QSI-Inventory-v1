@@ -64,7 +64,8 @@ const InventoryContainer = (props) => {
 
   useEffect(() => {
     actionInventory.fetchInventoryListRequested();
-  }, [actionInventory, totalPage, sizePerPage, currentPage]);
+    // eslint-disable-next-line
+  }, [totalPage, sizePerPage, currentPage]);
 
   const columns = [
     {
