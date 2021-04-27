@@ -3,8 +3,9 @@ import * as ActionTemplate from '../../Template/Store/TemplateAction';
 import * as SelectorInventory from '../Selector/InventorySelector';
 
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { toast } from 'react-toastify';
+
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 function* fetchInventoryListProcess() {
   try {
@@ -66,8 +67,8 @@ function* submitInventoryProcess() {
     yield put(ActionTemplate.setLoadingCompoent(false));
     yield put(ActionTemplate.setLoading(false));
     yield put(ActionTemplate.openModal('Inventory'));
-    toast.success('New Inventory Submitted');
     yield put(ActionInventory.removeInventoryDetail());
+    toast.success('New Inventory Submitted');
   } catch (error) {
     console.log('gagal', error);
     toast.error('Terjadi kesalahan');
@@ -108,9 +109,9 @@ function* updateInventoryProcess() {
     );
     yield put(ActionInventory.fetchInventoryListRequested());
     yield put(ActionTemplate.setLoadingCompoent(false));
-    yield put(ActionTemplate.setLoading(false));
     yield put(ActionTemplate.openModal('Inventory'));
     yield put(ActionInventory.removeInventoryDetail());
+    yield put(ActionTemplate.setLoading(false));
     toast.success('Inventory Updated');
   } catch (error) {
     console.log(error);

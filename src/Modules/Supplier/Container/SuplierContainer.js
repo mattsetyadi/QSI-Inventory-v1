@@ -25,7 +25,8 @@ const SuplierContainer = (props) => {
 
   useEffect(() => {
     actionSupplier.fetchSupplierListRequested();
-  }, [actionSupplier, totalPage, sizePerPage, currentPage]);
+    // eslint-disable-next-line
+  }, [totalPage, sizePerPage, currentPage]);
 
   // const handleSupplierId = (id) => {
   //   console.log('id of supplier set');
